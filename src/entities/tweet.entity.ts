@@ -9,4 +9,8 @@ export class Tweet {
         this.username = username;
         this.tweet = tweet;
     }
+
+    getUsername(): string {
+        return this.username;
+    }
 }

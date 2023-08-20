@@ -6,4 +6,12 @@ export class User {
         this.username = username;
         this.avatar = avatar;
     }
+
+    getUsername(): string{
+        return this.username;
+    }
+
+    getAvatar(): string{
+        return this.avatar;
+    }
 }
