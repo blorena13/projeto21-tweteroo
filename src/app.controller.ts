@@ -14,13 +14,8 @@ export class AppController {
     try {
       return this.appService.createUser(body);
     } catch (error) {
-      throw new HttpException("deu ruim!", HttpStatus.CONFLICT);
+      throw new HttpException("There was a problem creating your user.", HttpStatus.CONFLICT);
     }
-  }
-
-  @Get("/users")
-  getUser() {
-    return this.appService.getUsers();
   }
 
   @Get("/")
@@ -34,11 +29,11 @@ export class AppController {
     try {
       const tweet = this.appService.createTweet(body);
       if(!tweet){
-        throw new HttpException("deu ruim ", HttpStatus.UNAUTHORIZED);
+        throw new HttpException("unauthorized", HttpStatus.UNAUTHORIZED);
       }
       return tweet;
     } catch (error) {
-      throw new HttpException("deu ruim na authorization!", HttpStatus.UNAUTHORIZED);
+      throw new HttpException("unauthorized process", HttpStatus.UNAUTHORIZED);
     }
   }
 
@@ -51,7 +46,7 @@ export class AppController {
     }
     return this.appService.getTweets(page);
    } catch(error){
-    throw new HttpException("deu ruim no params", HttpStatus.BAD_REQUEST);
+    throw new HttpException("Informe uma página válida!", HttpStatus.BAD_REQUEST);
    }
   }
   @Get("/tweets/:username")
